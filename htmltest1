@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>UntitledNetwork</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+    <style>
+        .side1 {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+        
+        .side1 a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+        
+        .side1 a:hover {
+            color: #f1f1f1;
+        }
+        
+        .side1 .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+        
+        .header-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .header-btn img {
+            width: 48px;
+            height: 48px;
+        }
+        
+        .header-btn p {
+            color: white;
+            margin: 0;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        
+        .rule-content {
+            background-color: #f9f9f9;
+            padding: 15px;
+            margin: 5px 0;
+            border-left: 4px solid #000;
+        }
+        
+        .w3-show {
+            display: block !important;
+        }
+        
+        .w3-hide {
+            display: none !important;
+        }
+        
+        .footer-discord {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="w3-container w3-theme">
+        <button onclick="openSidebar()" class="w3-padding-16 w3-theme w3-button w3-block w3-left-align header-btn">
+            <img src="https://media.discordapp.net/attachments/671287538589368330/671656489831890949/UntitledLogo.png" alt="UntitledNetwork Logo">
+            <p>UntitledNetwork</p>
+        </button>
+    </div>
+
+    <!-- Sidebar -->
+    <div id="mySidebar" class="side1">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeSidebar()">&times;</a>
+        <a href="#" onclick="openCity(event,'About'); closeSidebar();">About</a>
+        <a href="#" onclick="openCity(event,'Rules'); closeSidebar();">Rules</a>
+        <a href="#" onclick="openCity(event,'Blog'); closeSidebar();">Blog</a>
+        <a href="#" onclick="openCity(event,'Contact'); closeSidebar();">Contact</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="w3-container">
+        <hr>
+        
+        <!-- Tab Navigation -->
+        <div class="w3-border">
+            <div class="w3-bar w3-theme">
+                <button class="w3-bar-item w3-button testbtn w3-padding-16 w3-dark-grey" onclick="openCity(event,'About')">About</button>
+                <button class="w3-bar-item w3-button testbtn w3-padding-16" onclick="openCity(event,'Rules')">Rules</button>
+                <button class="w3-bar-item w3-button testbtn w3-padding-16" onclick="openCity(event,'Blog')">Blog</button>
+                <button class="w3-bar-item w3-button testbtn w3-padding-16" onclick="openCity(event,'Contact')">Contact</button>
+            </div>
+
+            <!-- About Section -->
+            <div id="About" class="w3-container city w3-animate-opacity" style="display: block;">
+                <h2>About</h2>
+                <p><strong>Fairness, democracy, transparency</strong></p>
+                
+                <h3>What is UntitledNetwork?</h3>
+                <p>UntitledNetwork is an online community that offers an indirect democracy for our members.</p>
+                
+                <p>We do our best to encourage educating our members, be it English, history, culture or anything. We hope that we can give some educational value without obstructing the social aspect of our community. That being said, the prime intention of this community is entertainment and it should be treated as such, to keep it fun for everyone we have rules in place.</p>
+            </div>
+
+            <!-- Rules Section -->
+            <div id="Rules" class="w3-container city w3-animate-opacity" style="display: none;">
+                <h2>Rules</h2>
+                <p>These rules override the rules in the /rules command. If you have any questions or concerns about these rules please contact us via discord. If you follow these rules perfectly you will not be punished. In case you do get punished and you know for what but you weren't violating rules, create a punishment appeal explaining how your actions did not violate the rules.</p>
+                <p>If you are punished for breaking rules, you are still allowed to appeal.</p>
+                
+                <div class="w3-margin-top">
+                    <button onclick="toggleRule('rule1')" class="w3-padding-16 w3-theme w3-button w3-block w3-left-align">
+                        <i class="fa fa-plus-circle" id="rule1-icon"></i> Do not grief
+                    </button>
+                    <div id="rule1" class="w3-hide rule-content">
+                        <p>Griefing or participating in griefing will cause an immediate ban of up to 6 months depending on the severity. Griefing is destroying someone else their property without their permission. This rule loosely applies to natural landscape, meaning that making cobblestone monsters, 1x1 pillars and tnt craters or anything else that harms the natural landscape in a generally unappealing way is also griefing and could lead up to a ban.</p>
+                    </div>
+
+                    <button onclick="toggleRule('rule2')" class="w3-padding-16 w3-theme w3-button w3-block w3-left-align">
+                        <i class="fa fa-plus-circle" id="rule2-icon"></i> Do not steal
+                    </button>
+                    <div id="rule2" class="w3-hide rule-content">
+                        <p>This includes scamming. Stealing from other players will cause a ban up to 2 weeks. Stealing is taking another player's items or animals without their permission.</p>
+                    </div>
+
+                    <button onclick="toggleRule('rule3')" class="w3-padding-16 w3-theme w3-button w3-block w3-left-align">
+                        <i class="fa fa-plus-circle" id="rule3-icon"></i> Do not advertise
+                    </button>
+                    <div id="rule3" class="w3-hide rule-content">
+                        <p>This rule is loosely defines, sharing the ip of your own server is acceptable as long as it is not done in such a way it would bother other players.</p>
+                        <p><strong>Example of OK advertising:</strong><br>
+                        You: Hey Ben, I'm going to work on my server for a bit, I'll be back later.<br>
+                        Ben: Oh cool, you have your own server? Can I come check it out?<br>
+                        You: Sure, it's still in development but having someone to take a look at my work might be nice. The IP is play.example.xyz and the version is 1.12.2</p>
+                        <p><strong>Example of NOT OK advertising:</strong><br>
+                        Guys I am launching a new server today, the ip is play.example.xyz join now for a free rank. I repeat:play.example.xyz.</p>
+                        <p><strong>Discord advertising and UntitledNetwork related discord servers</strong><br>
+                        View our approach to community discords here:</p>
+                    </div>
+
+                    <button onclick="toggleRule('rule4')" class="w3-padding-16 w3-theme w3-button w3-block w3-left-align">
+                        <i class="fa fa-plus-circle" id="rule4-icon"></i> Do not hack
+                    </button>
+                    <div id="rule4" class="w3-hide rule-content">
+                        <p>The use of mods in order to get an unfair advantage over other users is no allowed. We do not recommend the use of any mods whatsoever, despite their intended function.</p>
+                        <p>Optifine is a very popular mod for boosting performance on Minecraft: Java Edition. Sadly Optifine also comes with functions such as the ability to zoom in and have better visuals underwater. The use of these functions is in itself not bannable by itself but certainly will be held into account in case you get in trouble.</p>
+                        <p>Same goes for badlion client, the client is intended as an anticheat, a better pvp experience, and some slight modifications. These slight modifications give you a slight unfair advantage ingame and are thus not allowed.</p>
+                        <p>Using Optifine and BadLion client is inherently not against the rules, what is against the rules is utilizing settings that grant you an unfair advantage over vanilla minecraft. The punishments can range from a verbal warning to a two month ban.</p>
+                        <p><strong>Preset max punishment by type of hack:</strong><br>
+                        X-ray - 14 days<br>
+                        Killaura - 10 days<br>
+                        Fly - 7 days<br>
+                        Speed - 7 days<br>
+                        Jusus - 1 day<br>
+                        Derp - 1 day<br>
+                        Printer - Max ban is 2 weeks, however in extreme cases builds might be removed when built with printer.</p>
+                    </div>
+
+                    <button onclick="toggleRule('rule5')" class="w3-padding-16 w3-theme w3-button w3-block w3-left-align">
+                        <i class="fa fa-plus-circle" id="rule5-icon"></i> Do not spam
+                    </button>
+                    <div id="rule5" class="w3-hide rule-content">
+                        <p>Repeating messages more than 2 times over the course of one or less minutes is considered spam. Repeating characters is seen as spam, meaning that saying for example "aaaaaaaaaaaaaaaaaaaaa" is spam. No nonsense messages, saying "haha cucumber" is fine, saying "eol keoaj ej oetjaongj".</p>
+                    </div>
+
+                    <button onclick="toggleRule('rule6')" class="w3-padding-16 w3-theme w3-button w3-block w3-left-align">
+                        <i class="fa fa-plus-circle" id="rule6-icon"></i> Do not speak any other languages than english
+                    </button>
+                    <div id="rule6" class="w3-hide rule-content">
+                        <p>This rule does not apply when every player on a server online at that point speaks the language you are speaking. For example if all of the online players speak Dutch, you are allowed to speak Dutch. If there is a player online that does not speak your language, however you want to talk to your friend, try messaging them by using /w (player) (message).</p>
+                    </div>
+
+                    <button onclick="toggleRule('rule7')" class="w3-padding-16 w3-theme w3-button w3-block w3-left-align">
+                        <i class="fa fa-plus-circle" id="rule7-icon"></i> Do not use inappropriate names or skins
+                    </button>
+                    <div id="rule7" class="w3-hide rule-content">
+                        <p>Having an inappropriate username or skin will get you punished depending on the username or skin. For example an Adolf Hitler skin will get you a ban for discrimination same goes for having the name "Adolf_Hitler". Inappropriate name bans are not a set number but rather the days you have left until you can change your name again, unless discrimination ban is longer than that period.</p>
+                    </div>
+
+                    <button onclick="toggleRule('rule8')" class="w3-padding-16 w3-theme w3-button w3-block w3-left-align">
+                        <i class="fa fa-plus-circle" id="rule8-icon"></i> Do not talk about subjects such as sex, drugs and gore
+                    </button>
+                    <div id="rule8" class="w3-hide rule-content">
+                        <p>You will get warned when talking about these subjects, if you do not stop you will be muted for up to two hours.</p>
+                    </div>
+
+                    <button onclick="toggleRule('rule9')" class="w3-padding-16 w3-theme w3-button w3-block w3-left-align">
+                        <i class="fa fa-plus-circle" id="rule9-icon"></i> Do not abuse glitches
+                    </button>
+                    <div id="rule9" class="w3-hide rule-content">
+                        <p>Anyone found abusing glitches to their advantage will be banned for up to 8 weeks, 0 tick farm.</p>
+                        <p><strong>Sidenote:</strong> Duping is also abusing glitches, duping will get you banned for 12 months and all duped items will be removed.</p>
+                    </div>
+
+                    <button onclick="toggleRule('rule10')" class="w3-padding-16 w3-theme w3-button w3-block w3-left-align">
+                        <i class="fa fa-plus-circle" id="rule10-icon"></i> Do not manipulate voting results
+                    </button>
+                    <div id="rule10" class="w3-hide rule-content">
+                        <p>Manipulating polls or elections by any means will result in a removal from the voter role with no way to reassign it, depending on the severity we could ban for up to 2 months. Asking your cousin to vote on you is allowed. Starting a campaign to get yourself elected as senator is allowed, and even recommended since it brings players to the server. What is not allowed is using alts or bots to manipulate votes. Every vote should be a real member.</p>
+                    </div>
+
+                    <button onclick="toggleRule('rule11')" class="w3-padding-16 w3-theme w3-button w3-block w3-left-align">
+                        <i class="fa fa-plus-circle" id="rule11-icon"></i> Do not participate in any form of discrimination
+                    </button>
+                    <div id="rule11" class="w3-hide rule-content">
+                        <p>This rule does not apply to discrimination based on anything directly related to the game. For example not allowing someone into your base because they have the color green in their skin is allowed. What is not allowed is saying things such as "Transgender people are not allowed in my base". This could lead up to a 6month mute.</p>
+                    </div>
+
+                    <button onclick="toggleRule('rule12')" class="w3-padding-16 w3-theme w3-button w3-block w3-left-align">
+                        <i class="fa fa-plus-circle" id="rule12-icon"></i> Do not impersonate
+                    </button>
+                    <div id="rule12" class="w3-hide rule-content">
+                        <p>Impersonating players, staff members or celebrities is not allowed and could lead up to a 2 day mute. Impersonating players, staff members or celebrities for personal benefit could led up to a 2 month ban.</p>
+                    </div>
+
+                    <button onclick="toggleRule('rule13')" class="w3-padding-16 w3-theme w3-button w3-block w3-left-align">
+                        <i class="fa fa-plus-circle" id="rule13-icon"></i> Do not attempt to break the server
+                    </button>
+                    <div id="rule13" class="w3-hide rule-content">
+                        <p>Trying to break anything on the server will result in a ban of up to 12 months. This includes building lagg machines, ddossing, but could also apply to other, less common attacks.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Blog Section -->
+            <div id="Blog" class="w3-container city w3-animate-opacity" style="display: none;">
+                <h2>Blog</h2>
+                <p>Stay updated with the latest news, updates, and stories from the UntitledNetwork community.</p>
+                
+                <!-- Blog Post 1 -->
+                <div class="w3-card-4 w3-margin-bottom">
+                    <div class="w3-container w3-theme">
+                        <h3>What is Vibecoding?</h3>
+                        <p class="w3-opacity">Posted on July 18, 2025 | Category: Community</p>
+                    </div>
+                    <div class="w3-container">
+                        <p>Ever wondered what "vibecoding" means? You might have heard this term floating around our community, and today we're going to break down what it's all about...</p>
+                        <button onclick="openBlogPost('post1')" class="w3-button w3-theme w3-margin-bottom">Read More</button>
+                    </div>
+                </div>
+
+                <!-- Blog Post 2 -->
+                <div class="w3-card-4 w3-margin-bottom">
+                    <div class="w3-container w3-theme">
+                        <h3>Welcome to UntitledNetwork 2.0</h3>
+                        <p class="w3-opacity">Posted on July 15, 2025 | Category: Updates</p>
+                    </div>
+                    <div class="w3-container">
+                        <p>We're excited to announce the launch of our new website and several community improvements that will enhance your experience on UntitledNetwork...</p>
+                        <button onclick="openBlogPost('post2')" class="w3-button w3-theme w3-margin-bottom">Read More</button>
+                    </div>
+                </div>
+
+                <!-- Blog Post 3 -->
+                <div class="w3-card-4 w3-margin-bottom">
+                    <div class="w3-container w3-theme">
+                        <h3>Understanding Our Democracy System</h3>
+                        <p class="w3-opacity">Posted on July 12, 2025 | Category: Community</p>
+                    </div>
+                    <div class="w3-container">
+                        <p>UntitledNetwork operates on a unique indirect democracy system. Learn how you can participate in elections, vote on important decisions, and help shape our community...</p>
+                        <button onclick="openBlogPost('post3')" class="w3-button w3-theme w3-margin-bottom">Read More</button>
+                    </div>
+                </div>
+
+                <!-- Blog Post Categories -->
+                <div class="w3-card-4 w3-margin-top">
+                    <div class="w3-container w3-theme">
+                        <h4>Categories</h4>
+                    </div>
+                    <div class="w3-container">
+                        <p>
+                            <span class="w3-tag w3-theme w3-margin-right w3-margin-bottom">Updates</span>
+                            <span class="w3-tag w3-theme w3-margin-right w3-margin-bottom">Community</span>
+                            <span class="w3-tag w3-theme w3-margin-right w3-margin-bottom">Events</span>
+                            <span class="w3-tag w3-theme w3-margin-right w3-margin-bottom">Rules</span>
+                            <span class="w3-tag w3-theme w3-margin-right w3-margin-bottom">Developer</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Blog Post 1 Full View -->
+            <div id="post1" class="w3-container city w3-animate-opacity" style="display: none;">
+                <button onclick="openCity(event,'Blog')" class="w3-button w3-theme w3-margin-bottom">
+                    <i class="fa fa-arrow-left"></i> Back to Blog
+                </button>
+                
+                <h2>What is Vibecoding?</h2>
+                <p class="w3-opacity">Posted on July 18, 2025 | Category: Community | By UntitledNetwork Team</p>
+                
+                <div class="w3-card-4">
+                    <div class="w3-container">
+                        <p>Ever wondered what "vibecoding" means? You might have heard this term floating around our community, and today we're going to break down what it's all about and why it's become such an important part of our server culture.</p>
+                        
+                        <h3>What is Vibecoding?</h3>
+                        <p>Vibecoding is a unique approach to programming and server management that prioritizes the <strong>feel</strong> and <strong>atmosphere</strong> of the experience over rigid technical specifications. It's about creating code, systems, and experiences that just "feel right" to the people using them.</p>
+                        
+                        <h3>Origins of the Term</h3>
+                        <p>The term "vibecoding" emerged from our development team's philosophy when building UntitledNetwork. Instead of following strict coding conventions or overly formal development processes, we focus on:</p>
+                        <ul>
+                            <li><strong>Intuitive Design:</strong> Making systems that feel natural to use</li>
+                            <li><strong>Community-First Development:</strong> Building features that enhance the social experience</li>
+                            <li><strong>Flexible Solutions:</strong> Creating code that adapts to real-world usage patterns</li>
+                            <li><strong>Emotional Connection:</strong> Ensuring our technical decisions support the community vibe</li>
+                        </ul>
+                        
+                        <h3>Vibecoding in Practice</h3>
+                        <p>On UntitledNetwork, vibecoding manifests in several ways:</p>
+                        
+                        <p><strong>Democratic Systems:</strong> Our voting and governance plugins aren't just functional—they're designed to feel empowering and inclusive. Every button click, every vote cast, every election held is crafted to reinforce our community values.</p>
+                        
+                        <p><strong>Rule Enforcement:</strong> Rather than rigid automatic punishment systems, our moderation tools are built to support nuanced, context-aware decisions that maintain the server's welcoming atmosphere.</p>
+                        
+                        <p><strong>User Experience:</strong> From our website design to in-game interactions, every element is evaluated not just for technical correctness, but for how it makes players feel when they interact with it.</p>
+                        
+                        <h3>Why It Matters</h3>
+                        <p>In a world of corporate-feeling servers and impersonal gaming experiences, vibecoding helps us maintain the authentic, community-driven atmosphere that makes UntitledNetwork special. It's the difference between a server that works and a server that feels like home.</p>
+                        
+                        <p>When you join UntitledNetwork, you're not just logging into a Minecraft server—you're entering a space that has been carefully crafted with vibecoding principles to foster genuine connections, democratic participation, and inclusive fun.</p>
+                        
+                        <h3>The Future of Vibecoding</h3>
+                        <p>As we continue to develop new features and expand our community, vibecoding remains at the heart of every decision we make. Whether we're implementing new gameplay mechanics, updating our website, or adjusting our rules, we always ask ourselves: "Does this enhance the vibe of our community?"</p>
+                        
+                        <p>We believe that technology should serve humanity, not the other way around. Vibecoding is our way of ensuring that every line of code we write makes UntitledNetwork a better place for everyone.</p>
+                        
+                        <div class="w3-panel w3-border-left w3-border-theme">
+                            <p><em>"Vibecoding isn't just about writing code—it's about writing experiences that bring people together."</em> - UntitledNetwork Development Team</p>
+                        </div>
+                        
+                        <p>Have questions about vibecoding or want to see it in action? Join our Discord server and experience firsthand how this philosophy shapes every aspect of our community!</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Section -->
+            <div id="Contact" class="w3-container city w3-animate-opacity" style="display: none;">
+                <h2>Contact</h2>
+                <p>Get in touch with the UntitledNetwork community through our various channels:</p>
+                
+                <div class="w3-card-4 w3-margin">
+                    <div class="w3-container w3-theme">
+                        <h3><i class="fa fa-discord"></i> Discord</h3>
+                    </div>
+                    <div class="w3-container">
+                        <p>Join our Discord server for real-time chat, community updates, and support:</p>
+                        <p><a href="https://discord.gg/eBsYVBd" class="w3-btn w3-theme-light" target="_blank">
+                            <i class="fa fa-external-link"></i> Join Discord Server
+                        </a></p>
+                    </div>
+                </div>
+
+                <div class="w3-card-4 w3-margin">
+                    <div class="w3-container w3-theme">
+                        <h3><i class="fa fa-gamepad"></i> Minecraft Server</h3>
+                    </div>
+                    <div class="w3-container">
+                        <p>Connect to our Minecraft server and start playing!</p>
+                        <p><strong>Server IP:</strong> <code>play.untitlednetwork.org</code></p>
+                        <p><strong>Version:</strong> Latest Minecraft version supported</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="w3-container w3-theme-dark w3-padding-16">
+        <h3>UntitledNetwork</h3>
+        <p>Thank you <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a> for helping us create this website</p>
+        
+        <div class="footer-discord">
+            <span>Remember to check out our discord server</span>
+            <a href="https://discord.gg/eBsYVBd" class="w3-btn w3-theme-light" target="_blank">
+                <i class="fa fa-comments"></i> Discord
+            </a>
+        </div>
+        
+        <div style="position:relative;bottom:55px;" class="w3-tooltip w3-right">
+            <span class="w3-text w3-theme-light w3-padding">Go To Top</span>&nbsp;   
+            <a class="w3-text-white" href="#"><span class="w3-xlarge">
+                <i class="fa fa-chevron-circle-up"></i></span></a>
+        </div>
+    </footer>
+
+    <script>
+        // Sidebar functions
+        function openSidebar() {
+            document.getElementById("mySidebar").style.width = "250px";
+        }
+        
+        function closeSidebar() {
+            document.getElementById("mySidebar").style.width = "0";
+        }
+
+        // Tab navigation
+        function openCity(evt, cityName) {
+            var i, x, tablinks;
+            x = document.getElementsByClassName("city");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("testbtn");
+            for (i = 0; i < x.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" w3-dark-grey", "");
+            }
+            document.getElementById(cityName).style.display = "block";
+            if (evt && evt.currentTarget) {
+                evt.currentTarget.className += " w3-dark-grey";
+            }
+        }
+
+        // Blog post navigation
+        function openBlogPost(postId) {
+            var i, x, tablinks;
+            x = document.getElementsByClassName("city");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("testbtn");
+            for (i = 0; i < x.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" w3-dark-grey", "");
+            }
+            document.getElementById(postId).style.display = "block";
+        }
+
+        // Rule accordion with icons
+        function toggleRule(id) {
+            var content = document.getElementById(id);
+            var icon = document.getElementById(id + "-icon");
+            
+            if (content.className.indexOf("w3-show") == -1) {
+                content.className = content.className.replace("w3-hide", "w3-show");
+                icon.className = "fa fa-minus-circle";
+            } else { 
+                content.className = content.className.replace("w3-show", "w3-hide");
+                icon.className = "fa fa-plus-circle";
+            }
+        }
+
+        // Initialize the first tab
+        document.addEventListener('DOMContentLoaded', function() {
+            var firstBtn = document.getElementsByClassName("testbtn")[0];
+            if (firstBtn) {
+                firstBtn.click();
+            }
+        });
+
+        // Close sidebar when clicking outside
+        document.addEventListener('click', function(event) {
+            var sidebar = document.getElementById("mySidebar");
+            var sidebarToggle = document.querySelector('.header-btn');
+            
+            if (!sidebar.contains(event.target) && !sidebarToggle.contains(event.target)) {
+                if (sidebar.style.width === "250px") {
+                    closeSidebar();
+                }
+            }
+        });
+    </script>
+</body>
+</html>
+    <script>
+        // Sidebar functions
+        function openSidebar() {
+            document.getElementById("mySidebar").style.width = "250px";
+        }
+        
+        function closeSidebar() {
+            document.getElementById("mySidebar").style.width = "0";
+        }
+
+        // Tab navigation
+        function openCity(evt, cityName) {
+            var i, x, tablinks;
+            x = document.getElementsByClassName("city");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("testbtn");
+            for (i = 0; i < x.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" w3-dark-grey", "");
+            }
+            document.getElementById(cityName).style.display = "block";
+            if (evt && evt.currentTarget) {
+                evt.currentTarget.className += " w3-dark-grey";
+            }
+        }
+
+        // Rule accordion with icons
+        function toggleRule(id) {
+            var content = document.getElementById(id);
+            var icon = document.getElementById(id + "-icon");
+            
+            if (content.className.indexOf("w3-show") == -1) {
+                content.className = content.className.replace("w3-hide", "w3-show");
+                icon.className = "fa fa-minus-circle";
+            } else { 
+                content.className = content.className.replace("w3-show", "w3-hide");
+                icon.className = "fa fa-plus-circle";
+            }
+        }
+
+        // Initialize the first tab
+        document.addEventListener('DOMContentLoaded', function() {
+            var firstBtn = document.getElementsByClassName("testbtn")[0];
+            if (firstBtn) {
+                firstBtn.click();
+            }
+        });
+
+        // Close sidebar when clicking outside
+        document.addEventListener('click', function(event) {
+            var sidebar = document.getElementById("mySidebar");
+            var sidebarToggle = document.querySelector('.header-btn');
+            
+            if (!sidebar.contains(event.target) && !sidebarToggle.contains(event.target)) {
+                if (sidebar.style.width === "250px") {
+                    closeSidebar();
+                }
+            }
+        });
+    </script>
+</body>
+</html>
